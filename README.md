@@ -44,7 +44,7 @@ Build a pixel-perfect e-commerce product page with:
 
 1. **Clone and install dependencies:**
 ```bash
-git clone <repository-url>
+git clone https://github.com/Hossam-A-Yehia/product-page-task.git
 cd product-page-task
 npm install
 ```
@@ -60,19 +60,48 @@ Navigate to `http://localhost:3000`
 
 ```
 src/
-├── components/          # React components
-│   ├── ProductImageGallery/
-│   ├── ProductInfo/
-│   ├── VariationSelector/
-│   ├── AddToCartButton/
-│   ├── CartDrawer/
-│   └── QuantitySelector/
-├── stores/             # Zustand stores
-│   ├── productStore.ts
-│   └── cartStore.ts
-├── types/              # TypeScript interfaces
-├── utils/              # Helper functions
-└── styles/             # CSS files
+│
+├─ api/
+│   └─ productApi.ts           # Fetch product, handle errors
+│
+├─ components/
+│   ├─ Product/
+│   │   ├─ ProductPage.tsx     # Main container component
+│   │   ├─ ProductImages.tsx   # Gallery + Zoom
+│   │   ├─ ProductInfo.tsx     # Title, description, price, stock
+│   │   ├─ Variations.tsx      # Color, size selectors
+│   │   └─ AddToCart.tsx       # Quantity + Add button
+│   │
+│   ├─ Cart/
+│   │   ├─ CartDrawer.tsx      # Persistent cart modal/drawer
+│   │   ├─ CartItem.tsx        # Single item component
+│   │   └─ CartIcon.tsx        # Floating icon with badge
+│   │
+│   └─ Shared/
+│       ├─ Button.tsx
+│       ├─ SkeletonLoader.tsx
+│       └─ Modal.tsx
+│
+├─ store/
+│   ├─ productStore.ts         # Zustand + Immer product store
+│   └─ cartStore.ts            # Zustand + persist + Immer cart store
+│
+├─ hooks/
+│   └─ useProduct.ts           # Optional: custom hook for fetching
+│
+├─ types/
+│   ├─ product.ts
+│   └─ cart.ts
+│
+├─ utils/
+│   ├─ formatPrice.ts
+│   └─ helpers.ts
+│
+├─ pages/
+│   └─ ProductDetailPage.tsx   # Page-level wrapper
+│
+├─ App.tsx
+└─ index.tsx
 ```
 
 ## 🎨 Design Requirements
