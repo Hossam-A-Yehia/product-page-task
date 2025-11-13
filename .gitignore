@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Design specifications (private)
+DESIGN_SPECS.md
+
+# API response data (private)
+API_RESPONSE.md
