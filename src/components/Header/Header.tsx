@@ -6,9 +6,12 @@ import { CartIcon } from './CartIcon';
 import { HeartIcon } from './HeartIcon';
 import { UserMenu } from './UserMenu';
 import { CategoriesDropdown } from './CategoriesDropdown';
+import { useCartStore } from '../../store/cartStore';
 
 export const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { getTotalItems, toggleCart } = useCartStore();
+  const itemCount = getTotalItems();
 
   return (
     <header className="w-full">
@@ -37,7 +40,7 @@ export const Header = () => {
                 <UserMenu />
                 <HeartIcon />
               </div>
-              <CartIcon />
+              <CartIcon itemCount={itemCount} onClick={toggleCart} />
               <Button
                 variant="ghost"
                 size="sm"

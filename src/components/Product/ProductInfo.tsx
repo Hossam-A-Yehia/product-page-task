@@ -24,7 +24,7 @@ export const ProductInfo = () => {
     getCurrentSalePrice,
   } = useProductStore();
 
-  const { addItem } = useCartStore();
+  const { addItem, isOpen, toggleCart } = useCartStore();
 
   if (!product) {
     return (
@@ -44,16 +44,27 @@ export const ProductInfo = () => {
   const isOnSale = !!currentSalePrice && currentSalePrice < currentPrice;
 
   const handleAddToCart = () => {
-    if (!product || !selectedVariant) return;
-    
+    if (!product || !selectedVariant) return;    
     const price = currentSalePrice || currentPrice;
+
+    let cartImage = product.thumb;
+    const colorNameKey = colorVariation?.name;
+    if (colorVariation && colorNameKey) {
+      const selectedColorName = selectedVariations[colorNameKey];
+      const colorOption =
+        colorVariation.props.find((p) => p.name === selectedColorName) ||
+        colorVariation.props[0];
+      if (colorOption?.value) {
+        cartImage = colorOption.value;
+      }
+    }
 
     addItem({
       productId: product.id,
       variantId: selectedVariant.id,
       productName: product.name,
       productSlug: product.slug,
-      productImage: product.thumb,
+      productImage: cartImage,
       price: currentPrice,
       salePrice: currentSalePrice,
       quantity: 1,
@@ -62,6 +73,10 @@ export const ProductInfo = () => {
       itemTotal: price,
       itemSavings: isOnSale ? currentPrice - price : 0,
     });
+
+    if (!isOpen) {
+      toggleCart();
+    }
   };
 
   return (

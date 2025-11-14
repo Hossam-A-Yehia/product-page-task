@@ -29,6 +29,28 @@ export const useProductStore = create<ProductStore>()(
     setProduct: (product) =>
       set((state) => {
         state.product = product;
+
+        const selected: Record<string, string> = {};
+
+        if (product.variations && product.variations.length > 0) {
+          product.variations.forEach((variation) => {
+            const firstOption = variation.props[0];
+            if (firstOption) {
+              selected[variation.name] = firstOption.name;
+            }
+          });
+        }
+        state.selectedVariations = selected;
+        if (product.variants && product.variants.length > 0) {
+          state.selectedVariant =
+            product.variants.find((variant) =>
+              variant.variation_props.every(
+                (prop) => selected[prop.variation] === prop.variation_prop
+              )
+            ) || null;
+        } else {
+          state.selectedVariant = null;
+        }
       }),
 
     setLoading: (loading) =>
