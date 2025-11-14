@@ -7,6 +7,7 @@ import { ProductDescription } from './ProductDescription';
 import { ColorSelector } from './ColorSelector';
 import { SizeSelector } from './SizeSelector';
 import { ProductActions } from './ProductActions';
+import { toast } from 'sonner';
 import type { Product, ProductVariation } from '../../types';
 
 function getVariation(product: Product | null, name: string): ProductVariation | undefined {
@@ -77,6 +78,8 @@ export const ProductInfo = () => {
     if (!isOpen) {
       toggleCart();
     }
+
+    toast.success('Added to cart');
   };
 
   return (

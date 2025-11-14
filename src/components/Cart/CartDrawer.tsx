@@ -1,5 +1,6 @@
 import { useCartStore } from "../../store/cartStore";
 import { Button } from "../Shared/Button";
+import { toast } from "sonner";
 
 export const CartDrawer = () => {
   const {
@@ -88,7 +89,10 @@ export const CartDrawer = () => {
                         <Button
                           variant="ghost"
                           type="button"
-                          onClick={() => removeItem(item.id)}
+                          onClick={() => {
+                            removeItem(item.id);
+                            toast.success("Removed from cart");
+                          }}
                           className="text-[11px] text-red-500 hover:text-red-600"
                         >
                           Remove
