@@ -8,3 +8,4 @@ export { SizeSelector } from './SizeSelector';
 export { ProductActions } from './ProductActions';
 export { ProductImageGallery } from './ProductImageGallery';
 export { RelatedProducts } from './RelatedProducts';
+export { ProductReviews } from './ProductReviews';
