@@ -1,6 +1,7 @@
 import './App.css';
 import { Header } from './components/Header/Header';
 import { Breadcrumb } from './components/Header/Breadcrumb';
+import { ProductDetailPage } from './components/Product/ProductDetailPage';
 
 function App() {
   const breadcrumbItems = [
@@ -16,10 +17,7 @@ function App() {
       <Breadcrumb items={breadcrumbItems} />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className='text-3xl font-bold text-primary-900'>
-          Achilles Pro - Genuine Suede X Leather Sneakers
-        </h1>
-        <p className="text-primary-500 mt-2">Product page coming soon...</p>
+        <ProductDetailPage slug="Sneakers12" />
       </main>
     </div>
   );

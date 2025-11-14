@@ -34,7 +34,7 @@ module.exports = {
       fontSize: {
         'product-title-mobile': ['20px', { lineHeight: '1.2' }],
         'product-title-tablet': ['24px', { lineHeight: '1.2' }], 
-        'product-title-desktop': ['32px', { lineHeight: '1.2' }],
+        'product-title-desktop': ['36px', { lineHeight: '1.2' }],
       },
       spacing: {
         '18': '4.5rem', 

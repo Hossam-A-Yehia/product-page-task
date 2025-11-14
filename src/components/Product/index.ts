@@ -1,0 +1,8 @@
+export { ProductInfo } from './ProductInfo';
+export { ProductDetailPage } from './ProductDetailPage';
+export { ProductHeader } from './ProductHeader';
+export { ProductPricing } from './ProductPricing';
+export { ProductDescription } from './ProductDescription';
+export { ColorSelector } from './ColorSelector';
+export { SizeSelector } from './SizeSelector';
+export { ProductActions } from './ProductActions';
