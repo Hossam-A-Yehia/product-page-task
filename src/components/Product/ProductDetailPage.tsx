@@ -32,7 +32,7 @@ export const ProductDetailPage = ({ slug }: ProductDetailPageProps) => {
 
   if (isLoading && !data) {
     return (
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-[100px]">
+      <section className="grid grid-cols-1 lg:grid-cols-12  gap-[50px] md:gap-[100px]">
         <div className="lg:col-span-7 lg:h-full">
           <SkeletonLoader variant="image" className="rounded-md" />
           <div className="mt-4 flex gap-3">
@@ -57,7 +57,7 @@ export const ProductDetailPage = ({ slug }: ProductDetailPageProps) => {
   }
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-[100px]">
+    <section className="grid grid-cols-1 lg:grid-cols-12  gap-[50px] md:gap-[100px]">
       <div className="lg:col-span-7 lg:h-full">
         {product ? (
           <ProductImageGallery 

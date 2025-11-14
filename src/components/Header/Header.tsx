@@ -19,7 +19,6 @@ export const Header = () => {
     <header className="w-full">
       <TopPromoBar 
         message="New season coming! Discount 10% for all product! Checkout Now!"
-        dismissible={true}
       />
       <div className="bg-white">
         <div className="max-w-7xl border-b-2 border-dashed border-primary-200 mx-auto ">
