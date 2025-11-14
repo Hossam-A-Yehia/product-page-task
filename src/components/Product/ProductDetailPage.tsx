@@ -3,6 +3,7 @@ import { useFetchProduct } from "../../hooks/useProduct";
 import { useProductStore } from "../../store/productStore";
 import { SkeletonLoader } from "../Shared/SkeletonLoader";
 import { ProductInfo } from "./ProductInfo";
+import { ProductImageGallery } from "./ProductImageGallery";
 
 interface ProductDetailPageProps {
   slug: string;
@@ -10,7 +11,7 @@ interface ProductDetailPageProps {
 
 export const ProductDetailPage = ({ slug }: ProductDetailPageProps) => {
   const { data, isLoading, error } = useFetchProduct(slug);
-  const { setProduct, setLoading, setError } = useProductStore();
+  const { product, setProduct, setLoading, setError } = useProductStore();
 
   useEffect(() => {
     setLoading(isLoading);
@@ -31,8 +32,8 @@ export const ProductDetailPage = ({ slug }: ProductDetailPageProps) => {
 
   if (isLoading && !data) {
     return (
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-7">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-[100px]">
+        <div className="lg:col-span-7 lg:h-full">
           <SkeletonLoader variant="image" className="rounded-md" />
           <div className="mt-4 flex gap-3">
             <SkeletonLoader variant="image" className="w-20 h-20" />
@@ -56,16 +57,25 @@ export const ProductDetailPage = ({ slug }: ProductDetailPageProps) => {
   }
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      <div className="lg:col-span-7">
-        <div className="w-full aspect-[4/5] bg-primary-50 rounded-md flex items-center justify-center text-primary-300 border border-primary-200">
-          Gallery coming next step
-        </div>
-        <div className="mt-4 flex gap-3">
-          <div className="w-20 h-20 rounded-md bg-primary-50 border border-primary-200" />
-          <div className="w-20 h-20 rounded-md bg-primary-50 border border-primary-200" />
-          <div className="w-20 h-20 rounded-md bg-primary-50 border border-primary-200" />
-        </div>
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-[100px]">
+      <div className="lg:col-span-7 lg:h-full">
+        {product ? (
+          <ProductImageGallery 
+            images={product.images || []}
+            productName={product.name}
+            thumbImage={product.thumb}
+            variations={product.variations}
+          />
+        ) : (
+          <div className="space-y-4">
+            <SkeletonLoader variant="image" />
+            <div className="flex gap-3">
+              {[...Array(4)].map((_, i) => (
+                <SkeletonLoader key={i} variant="image" className="w-20 h-20" />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="lg:col-span-5">

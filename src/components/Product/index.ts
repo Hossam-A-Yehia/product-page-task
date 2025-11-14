@@ -6,3 +6,4 @@ export { ProductDescription } from './ProductDescription';
 export { ColorSelector } from './ColorSelector';
 export { SizeSelector } from './SizeSelector';
 export { ProductActions } from './ProductActions';
+export { ProductImageGallery } from './ProductImageGallery';
