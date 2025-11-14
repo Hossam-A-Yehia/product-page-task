@@ -18,20 +18,25 @@ export const Header = () => {
       />
       <div className="bg-white">
         <div className="max-w-7xl border-b-2 border-dashed border-primary-200 mx-auto ">
-          <div className="flex items-center justify-between h-16">
-            
+          <div className="flex items-center justify-between h-14 md:h-16 px-3 md:px-0">
             <div className="flex-shrink-0">
               <div className="flex items-center">
-                <img src="/logo.svg" alt="logo" />
+                <img
+                  src="/logo.svg"
+                  alt="logo"
+                  className="h-7 w-auto md:h-8"
+                />
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
               <SearchBar />
             </div>
-            <div className="flex items-center space-x-4">
-              <CategoriesDropdown />
-              <UserMenu />
-              <HeartIcon />
+            <div className="flex items-center space-x-3">
+              <div className="hidden md:flex items-center space-x-4">
+                <CategoriesDropdown />
+                <UserMenu />
+                <HeartIcon />
+              </div>
               <CartIcon />
               <Button
                 variant="ghost"
