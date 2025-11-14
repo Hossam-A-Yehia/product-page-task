@@ -3,6 +3,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { useProductStore } from '../../store/productStore';
 import { useWishlistStore } from '../../store/wishlistStore';
 import { toast } from 'sonner';
+import { ProductShareModal } from './ProductShareModal';
 import type { ProductVariation } from '../../types';
 
 interface ProductImageGalleryProps {
@@ -20,6 +21,7 @@ export const ProductImageGallery = ({
 }: ProductImageGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const { product } = useProductStore();
   const { toggleWishlist, isInWishlist } = useWishlistStore();
 
@@ -60,6 +62,14 @@ export const ProductImageGallery = ({
 
   const handleImageClick = () => {
     setIsZoomed(!isZoomed);
+  };
+
+  const handleOpenShare = () => {
+    setIsShareOpen(true);
+  };
+
+  const handleCloseShare = () => {
+    setIsShareOpen(false);
   };
 
   const handleToggleWishlist = () => {
@@ -117,6 +127,8 @@ export const ProductImageGallery = ({
         <aside className=" flex flex-col justify-between items-center ml-4 py-2">
           <div className="flex flex-col gap-3">
             <button
+              type="button"
+              onClick={handleOpenShare}
               className="w-11 h-11 bg-[#F2F2F2] rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition"
               aria-label="Share product"
             >
@@ -206,6 +218,13 @@ export const ProductImageGallery = ({
           ))}
         </div>
       )}
+
+      <ProductShareModal
+        isOpen={isShareOpen}
+        onClose={handleCloseShare}
+        productName={productName}
+        imageUrl={currentImage}
+      />
     </div>
   );
 };
