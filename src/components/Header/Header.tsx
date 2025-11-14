@@ -7,11 +7,13 @@ import { HeartIcon } from './HeartIcon';
 import { UserMenu } from './UserMenu';
 import { CategoriesDropdown } from './CategoriesDropdown';
 import { useCartStore } from '../../store/cartStore';
+import { useWishlistStore } from '../../store/wishlistStore';
 
 export const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { getTotalItems, toggleCart } = useCartStore();
   const itemCount = getTotalItems();
+  const wishlistCount = useWishlistStore((state) => state.items.length);
 
   return (
     <header className="w-full">
@@ -38,7 +40,7 @@ export const Header = () => {
               <div className="hidden md:flex items-center space-x-4">
                 <CategoriesDropdown />
                 <UserMenu />
-                <HeartIcon />
+                <HeartIcon itemCount={wishlistCount} />
               </div>
               <CartIcon itemCount={itemCount} onClick={toggleCart} />
               <Button

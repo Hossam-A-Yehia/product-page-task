@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { useProductStore } from '../../store/productStore';
+import { useWishlistStore } from '../../store/wishlistStore';
+import { toast } from 'sonner';
 import type { ProductVariation } from '../../types';
 
 interface ProductImageGalleryProps {
@@ -17,6 +20,10 @@ export const ProductImageGallery = ({
 }: ProductImageGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
+  const { product } = useProductStore();
+  const { toggleWishlist, isInWishlist } = useWishlistStore();
+
+  const isWishlisted = product ? isInWishlist(product.id) : false;
 
   const variationImages =
     variations
@@ -53,6 +60,21 @@ export const ProductImageGallery = ({
 
   const handleImageClick = () => {
     setIsZoomed(!isZoomed);
+  };
+
+  const handleToggleWishlist = () => {
+    if (!product) return;
+
+    toggleWishlist({
+      productId: product.id,
+      productName: product.name,
+      productSlug: product.slug,
+      productImage: product.thumb,
+    });
+
+    toast.success(
+      isWishlisted ? 'Removed from wishlist' : 'Added to wishlist'
+    );
   };
 
   if (!currentImage) {
@@ -103,11 +125,22 @@ export const ProductImageGallery = ({
               </svg>
             </button>
             <button
+              onClick={handleToggleWishlist}
               className="w-11 h-11 bg-[#F2F2F2] rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition"
-              aria-label="Add to wishlist"
+              aria-label="Toggle wishlist"
             >
-              <svg className="w-5 h-5 text-primary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              <svg
+                className={`w-5 h-5 ${isWishlisted ? 'text-red-500' : 'text-primary-900'}`}
+                fill={isWishlisted ? 'currentColor' : 'none'}
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
               </svg>
             </button>
           </div>
