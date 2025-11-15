@@ -1,5 +1,5 @@
-import { useProductStore } from '../productStore';
-import type { Product } from '../../types';
+import { useProductStore } from '../store/productStore';
+import type { Product } from '../types';
 
 const createTestProduct = (): Product => {
   const variations = [

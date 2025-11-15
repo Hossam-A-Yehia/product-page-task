@@ -1,4 +1,4 @@
-import { useWishlistStore } from '../wishlistStore';
+import { useWishlistStore } from '../store/wishlistStore';
 
 const createWishlistItem = () => ({
   productId: 'product-1',
