@@ -1,4 +1,5 @@
 import { Button } from "../Shared/Button";
+import LOGO from '../../assets/images/logo.svg';
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
           <div className="w-auto">
             <div className="space-y-6">
               <div>
-                <img src="/logo.svg" alt="logo" />
+                <img src={LOGO} alt="logo" />
               </div>
               <div className="flex gap-2 w-2/3 items-center">
                 <input

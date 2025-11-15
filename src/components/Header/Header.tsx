@@ -8,6 +8,7 @@ import { UserMenu } from './UserMenu';
 import { CategoriesDropdown } from './CategoriesDropdown';
 import { useCartStore } from '../../store/cartStore';
 import { useWishlistStore } from '../../store/wishlistStore';
+import LOGO from '../../assets/images/logo.svg';
 
 export const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -26,7 +27,7 @@ export const Header = () => {
             <div className="flex-shrink-0">
               <div className="flex items-center">
                 <img
-                  src="/logo.svg"
+                  src={LOGO}
                   alt="logo"
                   className="h-7 w-auto md:h-8"
                 />
