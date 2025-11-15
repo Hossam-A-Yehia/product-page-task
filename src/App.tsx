@@ -5,6 +5,7 @@ import { ProductDetailPage } from './components/Product/ProductDetailPage';
 import { ProductReviews } from './components/Product/ProductReviews';
 import { RelatedProducts } from './components/Product/RelatedProducts';
 import { CartDrawer } from './components/Cart/CartDrawer';
+import { Footer } from './components/Layout/Footer';
 
 function App() {
   const breadcrumbItems = [
@@ -23,6 +24,7 @@ function App() {
         <RelatedProducts />
         <ProductReviews />
       </main>
+      <Footer />
       <CartDrawer />
     </div>
   );
