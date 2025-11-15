@@ -109,7 +109,7 @@ export const ProductImageGallery = ({
           >
             <img
               src={currentImage}
-              alt={`${productName} - Image ${selectedImageIndex + 1}`}
+              alt={`${productName} view ${selectedImageIndex + 1}`}
               className={`
                 w-full h-full object-fill md:object-cover transition-transform duration-300
                 ${isZoomed ? 'scale-150' : 'scale-100 lg:hover:scale-105'}
@@ -194,7 +194,7 @@ export const ProductImageGallery = ({
             >
               <img
                 src={image}
-                alt={`${productName} thumbnail ${index + 1}`}
+                alt={`${productName} view ${index + 1}`}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
