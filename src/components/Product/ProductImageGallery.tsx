@@ -128,7 +128,7 @@ export const ProductImageGallery = ({
               className="w-11 h-11 bg-[#F2F2F2] rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition"
               aria-label="Share product"
             >
-              <img src={SHARE_IMG} className="w-5 h-5"/>
+              <img src={SHARE_IMG} className="w-5 h-5" alt="Share product" />
             </button>
             <button
               onClick={handleToggleWishlist}
