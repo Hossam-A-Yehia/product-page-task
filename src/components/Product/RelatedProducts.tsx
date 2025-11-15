@@ -67,9 +67,9 @@ export const RelatedProducts = () => {
   return (
     <section className="mt-12">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg md:text-xl font-semibold text-primary-900">
+        <h1 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
           Related Product
-        </h2>
+        </h1>
         <Button
           variant="ghost"
           size="sm"
