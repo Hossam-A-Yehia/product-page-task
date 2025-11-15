@@ -50,7 +50,7 @@ export const ColorSelector = ({
           </span>
         )}
       </div>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-4 md:grid-cols-5 gap-3">
         {colorVariation.props.map((option) => (
           <button
             key={option.id}

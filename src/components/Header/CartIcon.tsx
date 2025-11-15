@@ -17,11 +17,11 @@ export const CartIcon = ({
     variant="ghost"
       onClick={onClick}
       className={cn(
-        'relative p-2 text-primary-500 hover:text-primary-700 transition-colors',
+        'relative text-primary-500 hover:text-primary-700 transition-colors',
         className
       )}
       aria-label={`Shopping cart with ${itemCount} items`}
-      style={{marginLeft:0}}
+      style={{marginLeft:0, paddingLeft:"0"}}
     >
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path 
