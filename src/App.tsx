@@ -19,7 +19,7 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
       <Breadcrumb items={breadcrumbItems} />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-0 py-8 space-y-[90px]">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-0 py-8 space-y-[50px]">
         <ProductDetailPage slug="Sneakers12" />
         <RelatedProducts />
         <ProductReviews />

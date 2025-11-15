@@ -22,11 +22,11 @@ export const ProductPricing = ({
     >
       <div className="flex items-baseline gap-2">
         {isOnSale && (
-          <span className="text-[18px] line-through text-primary-500">
+          <span className="text-[14px] md:text-[18px] line-through text-primary-500">
             {formatPrice(currentPrice, "$")}
           </span>
         )}
-        <span className="text-2xl font-bold text-primary-900">
+        <span className="text-[14px] md:text-2xl font-bold text-primary-900">
           {formatPrice(salePrice || currentPrice, "$")}
         </span>
       </div>
@@ -36,7 +36,7 @@ export const ProductPricing = ({
         <span className="inline-flex items-center gap-1">
           <span className="text-primary-300">|</span>
           <span className="inline-flex items-center gap-1">
-            <span className="text-yellow-400">★</span>
+            <span className="text-yellow-400 text-lg">★</span>
             <span className="font-bold text-primary-900 text-lg">
               {rating.toFixed(1)}
             </span>

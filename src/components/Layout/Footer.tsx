@@ -5,9 +5,9 @@ export function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-0 py-16">
-        <div className="grid gap-12 md:grid-cols-[5fr_2fr_2fr_2fr]">
-          <div className="w-auto">
-            <div className="space-y-6">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-[5fr_2fr_2fr_2fr] md:gap-12">
+          <div className="w-auto col-span-2 md:col-span-1">
+            <div className="space-y-6 col">
               <div>
                 <img src={LOGO} alt="logo" />
               </div>
@@ -130,7 +130,7 @@ export function Footer() {
               </li>
             </ul>
           </div>
-          <div className="space-y-4 text-sm">
+          <div className="space-y-4 text-sm col-span-2 md:col-span-1">
             <p className="font-semibold text-gray-900 text-base">Company</p>
             <ul className="space-y-3 text-gray-600">
               <li className="hover:text-gray-900 cursor-pointer transition-colors">

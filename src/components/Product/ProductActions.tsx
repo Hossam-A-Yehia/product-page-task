@@ -12,17 +12,14 @@ export const ProductActions = ({
   return (
     <>
       <div className="mt-4 flex flex-col sm:flex-row gap-3">
-        <Button
-          variant="primary"
-          size="xl"
-          fullWidth
-          onClick={onAddToCart}
-        >
+        <Button variant="primary" size="xl" fullWidth onClick={onAddToCart}>
           Add To Cart
         </Button>
-        <Button variant="outline" size="xl" fullWidth onClick={onCheckout}>
-          Checkout Now
-        </Button>
+        <div className="w-2/3 mt-2 md:w-full md:mt-0">
+          <Button variant="outline" size="xl" fullWidth onClick={onCheckout}>
+            Checkout Now
+          </Button>
+        </div>
       </div>
 
       <div className="mt-2">

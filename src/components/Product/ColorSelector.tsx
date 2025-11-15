@@ -50,22 +50,20 @@ export const ColorSelector = ({
           </span>
         )}
       </div>
-      <div className="flex items-center gap-3">
+      <div className="grid grid-cols-4 gap-3">
         {colorVariation.props.map((option) => (
           <button
             key={option.id}
             type="button"
             onClick={() => onColorSelect(colorVariation.name, option.name)}
             className={
-              `w-[75px] h-[40px] p-1 rounded-md  flex items-center justify-center cursor-pointer transition-all duration-150 ` +
+              `w-full h-[40px] p-1 rounded-md flex items-center justify-center cursor-pointer transition-all duration-150 ` +
               (selectedColorOption?.name === option.name
-                ? "border-black shadow-md border-2" 
-                : " hover:border-primary-500")
+                ? "border-black shadow-md border-2"
+                : "hover:border-primary-500")
             }
             aria-label={option.ariaLabel || option.name}
-            aria-pressed={
-              selectedColorOption?.name === option.name
-            }
+            aria-pressed={selectedColorOption?.name === option.name}
           >
             <span
               className="w-full h-full rounded-md"

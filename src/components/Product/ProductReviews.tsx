@@ -137,7 +137,7 @@ export const ProductReviews = () => {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg
                     key={star}
-                    className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-yellow-400"
+                    className="w-4 sm:h-4 fill-[#FFA439]"
                     viewBox="0 0 20 20"
                   >
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -152,7 +152,7 @@ export const ProductReviews = () => {
               <div key={item.stars} className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
                 <div className="flex items-center gap-0.5 sm:gap-1 w-10 sm:w-12">
                   <span className="text-sm font-medium">{item.stars}.0</span>
-                  <svg className="w-4 h-4 fill-yellow-400" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 fill-[#FFA439]" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 </div>
@@ -169,7 +169,7 @@ export const ProductReviews = () => {
         </div>
       </div>
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-        <div className="w-full lg:w-72 xl:w-80 flex-shrink-0 border-2 border-dashed border-gray-300 rounded-lg p-3 sm:p-4 h-min">
+        <div className="hidden md:block w-full lg:w-72 xl:w-80 flex-shrink-0 border-2 border-dashed border-gray-300 rounded-lg p-3 sm:p-4 h-min">
           <h3 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base border-b-2 border-dashed border-gray-300 pb-1.5 sm:pb-2">
             Reviews Filter
           </h3>
@@ -244,17 +244,19 @@ export const ProductReviews = () => {
         <div className="flex-1">
           <div className="mb-4">
             <h3 className="font-bold mb-3">Review Lists</h3>
-            <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1">
-              <button className="flex-shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 border border-gray-300 rounded-md text-xs sm:text-sm font-medium bg-[#EBEBEB] hover:bg-gray-50 whitespace-nowrap">
-                All Reviews
-              </button>
-              <button className="flex-shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 border border-gray-300 rounded-md text-xs sm:text-sm font-medium bg-white hover:bg-gray-50 whitespace-nowrap">
-                With Photo & Video
-              </button>
-              <button className="flex-shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 border border-gray-300 rounded-md text-xs sm:text-sm font-medium bg-white hover:bg-gray-50 whitespace-nowrap">
-                With Description
-              </button>
-            </div>
+<div className="flex flex-wrap gap-2 pb-2">
+  <button className="px-3 py-1.5 sm:px-4 sm:py-2 border border-gray-300 rounded-md text-xs sm:text-sm font-medium bg-[#EBEBEB] hover:bg-gray-50">
+    All Reviews
+  </button>
+
+  <button className="px-3 py-1.5 sm:px-4 sm:py-2 border border-gray-300 rounded-md text-xs sm:text-sm font-medium bg-white hover:bg-gray-50">
+    With Photo & Video
+  </button>
+
+  <button className="px-3 py-1.5 sm:px-4 sm:py-2 border border-gray-300 rounded-md text-xs sm:text-sm font-medium bg-white hover:bg-gray-50">
+    With Description
+  </button>
+</div>
           </div>
           <div className="space-y-4">
             {reviews.map((review) => (

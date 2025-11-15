@@ -5,6 +5,7 @@ import { useWishlistStore } from '../../store/wishlistStore';
 import { toast } from 'sonner';
 import { ProductShareModal } from './ProductShareModal';
 import type { ProductVariation } from '../../types';
+import SHARE_IMG from '../../assets/images/share.svg';
 
 interface ProductImageGalleryProps {
   images: string[];
@@ -116,11 +117,6 @@ export const ProductImageGallery = ({
               `}
               loading="lazy"
             />
-            {allImages.length > 1 && (
-              <div className="lg:hidden absolute bottom-3 right-3 bg-black/60 text-white px-2 py-1 rounded-md text-xs">
-                {selectedImageIndex + 1} / {allImages.length}
-              </div>
-            )}
           </div>
         </div>
 
@@ -132,9 +128,7 @@ export const ProductImageGallery = ({
               className="w-11 h-11 bg-[#F2F2F2] rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition"
               aria-label="Share product"
             >
-              <svg className="w-5 h-5 text-primary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
-              </svg>
+              <img src={SHARE_IMG} className="w-5 h-5"/>
             </button>
             <button
               onClick={handleToggleWishlist}
@@ -203,21 +197,6 @@ export const ProductImageGallery = ({
         </div>
       )}
 
-      {allImages.length > 1 && (
-        <div className="flex justify-center gap-2 md:hidden">
-          {allImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleThumbnailClick(index)}
-              className={`
-                w-2 h-2 rounded-full transition-colors duration-200
-                ${selectedImageIndex === index ? 'bg-primary-900' : 'bg-primary-300'}
-              `}
-              aria-label={`Go to image ${index + 1}`}
-            />
-          ))}
-        </div>
-      )}
 
       <ProductShareModal
         isOpen={isShareOpen}

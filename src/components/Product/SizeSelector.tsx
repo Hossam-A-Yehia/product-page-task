@@ -40,7 +40,7 @@ export const SizeSelector = ({
           View Size Chart
         </button>
       </div>
-      <div className="grid grid-cols-6 gap-3 max-w-md">
+      <div className="grid grid-cols-4 md:grid-cols-6 gap-3 max-w-md">
         {sizeVariation.props.map((option) => {
           const isSelected = selectedSizeOption?.name === option.name;
           return (
